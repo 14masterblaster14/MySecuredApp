@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="internalOnly"
+    package="com.example.mysecuredapp">
+    <!--  installLocation :  App install location is limited to the device only   -->
+
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+
+    <!--  users can access the contents of the app’s private data folder using adb backup,
+          to prevent this disallow the backup. So, allowBackup = false.
+          replace = "allowBackup" will overwrite the allowBackup property set in library we are using    -->
+
+    <application
+        android:name=".PetApplication"
+        android:allowBackup="false"
+        tools:replace="allowBackup"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+         <!-- Splash Activity -->
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main Activity -->
+        <activity android:name=".MainActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <!-- Pet List Activity -->
+        <activity android:name=".PetListActivity" />
+
+        <!-- Detail Activity -->
+        <activity android:name=".PetDetailsActivity"/>
+
+    </application>
+
+</manifest>
